@@ -1,39 +1,38 @@
 using System;
 
-namespace Blog.Screens.UserScreens
+namespace Blog.Screens.CategoryScreens
 {
-    public class MenuUserScreen
+    public static class MenuCategoryScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Gestão de Usuário");
+            Console.WriteLine("Gestão de Categorias");
             Console.WriteLine("-----------------");
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine();
-            Console.WriteLine("1 - Listar usuarios");
-            Console.WriteLine("2 - Cadastrar usuarios");
-            Console.WriteLine("3 - Atualizar usuarios");
-            Console.WriteLine("4 - Deletar usuarios");
+            Console.WriteLine("1 - Listar categorias");
+            Console.WriteLine("2 - Cadastrar categoria");
+            Console.WriteLine("3 - Atualizar categoria");
+            Console.WriteLine("4 - Deletar categoria");
             Console.WriteLine("5 - Voltar ao menu inicial");
             Console.WriteLine();
-
 
             var option = short.Parse(Console.ReadLine());
 
             switch (option)
             {
                 case 1:
-                    ListUserScreen.Load();
+                    ListCategoryScreen.Load();
                     break;
                 case 2:
-                    CreateUserScreen.Load();
+                    CreateCategoryScreen.Load();
                     break;
                 case 3:
-                    UpdateUserScreen.Load();
+                    UpdateCategoryScreen.Load();
                     break;
                 case 4:
-                    DeleteUserScreen.Load();
+                    DeleteCategoryScreen.Load();
                     break;
                 case 5:
                     Program.Load();
@@ -41,6 +40,8 @@ namespace Blog.Screens.UserScreens
                 default: Load(); break;
             }
 
+
         }
+
     }
 }

@@ -2,26 +2,26 @@ using System;
 using Blog.Models;
 using Blog.Repositories;
 
-namespace Blog.Screens.TagScreens
+namespace Blog.Screens.RoleScreen
 {
-    public static class ListTagScreen
+    public static class ListRoleScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Lista de tags");
+            Console.WriteLine("Lista de Perfis");
             Console.WriteLine("--------------");
             List();
             Console.ReadKey();
-            MenuTagScreen.Load();
+            MenuRoleScreen.Load();
         }
 
         private static void List()
         {
-            var repository = new Repository<Tag>(Database.Connection);
-            var tags = repository.Get();
+            var repository = new Repository<Role>(Database.Connection);
+            var roles = repository.Get();
 
-            foreach (var item in tags)
+            foreach (var item in roles)
             {
                 Console.WriteLine($"{item.Id} -{item.Name} ({item.Slug}) ");
             }

@@ -2,43 +2,46 @@ using System;
 using Blog.Models;
 using Blog.Repositories;
 
-namespace Blog.Screens.TagScreens
+namespace Blog.Screens.RoleScreen
 {
-    public static class CreateTagScreen
+    public static class UpdateRoleScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Nova tag");
+            Console.WriteLine("Atualizando um perfil");
             Console.WriteLine("--------------");
+            Console.Write("Id: ");
+            var id = Console.ReadLine();
             Console.Write("Nome: ");
             var name = Console.ReadLine();
             Console.Write("Slug: ");
             var slug = Console.ReadLine();
 
-            Create(new Tag
+            Update(new Role
             {
+                Id = int.Parse(id),
                 Name = name,
                 Slug = slug
             });
             Console.ReadKey();
-            MenuTagScreen.Load();
+            MenuRoleScreen.Load();
         }
 
-        public static void Create(Tag tag)
+        public static void Update(Role role)
         {
             try
             {
-                var repository = new Repository<Tag>(Database.Connection);
-                repository.Create(tag);
-                Console.WriteLine("Tag cadastrada com sucesso!");
+                var repository = new Repository<Role>(Database.Connection);
+                repository.Update(role);
+                Console.WriteLine("Perfil atualizado com sucesso!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Não foi possivel salvar a tag");
+                Console.WriteLine("Não foi possível atualizar perfil");
                 Console.WriteLine(ex.Message);
-            }
 
+            }
 
         }
     }

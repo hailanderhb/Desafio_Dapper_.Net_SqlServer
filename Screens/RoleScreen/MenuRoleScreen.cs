@@ -1,20 +1,20 @@
 using System;
 
-namespace Blog.Screens.UserScreens
+namespace Blog.Screens.RoleScreen
 {
-    public class MenuUserScreen
+    public class MenuRoleScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Gestão de Usuário");
+            Console.WriteLine("Gestão de Perfil");
             Console.WriteLine("-----------------");
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine();
-            Console.WriteLine("1 - Listar usuarios");
-            Console.WriteLine("2 - Cadastrar usuarios");
-            Console.WriteLine("3 - Atualizar usuarios");
-            Console.WriteLine("4 - Deletar usuarios");
+            Console.WriteLine("1 - Listar perfis");
+            Console.WriteLine("2 - Cadastrar perfil");
+            Console.WriteLine("3 - Atualizar perfil");
+            Console.WriteLine("4 - Deletar perfil");
             Console.WriteLine("5 - Voltar ao menu inicial");
             Console.WriteLine();
 
@@ -24,23 +24,22 @@ namespace Blog.Screens.UserScreens
             switch (option)
             {
                 case 1:
-                    ListUserScreen.Load();
+                    ListRoleScreen.Load();
                     break;
                 case 2:
-                    CreateUserScreen.Load();
+                    CreateRoleScreen.Load();
                     break;
                 case 3:
-                    UpdateUserScreen.Load();
+                    UpdateRoleScreen.Load();
                     break;
                 case 4:
-                    DeleteUserScreen.Load();
+                    DeleteRoleScreen.Load();
                     break;
                 case 5:
                     Program.Load();
                     break;
                 default: Load(); break;
             }
-
         }
     }
 }

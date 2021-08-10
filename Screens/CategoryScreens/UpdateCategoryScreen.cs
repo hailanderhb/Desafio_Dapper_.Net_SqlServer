@@ -2,44 +2,46 @@ using System;
 using Blog.Models;
 using Blog.Repositories;
 
-namespace Blog.Screens.TagScreens
+namespace Blog.Screens.CategoryScreens
 {
-    public static class CreateTagScreen
+    public static class UpdateCategoryScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Nova tag");
+            Console.WriteLine("Atualizando uma categoria");
             Console.WriteLine("--------------");
+            Console.Write("Id: ");
+            var id = Console.ReadLine();
             Console.Write("Nome: ");
             var name = Console.ReadLine();
             Console.Write("Slug: ");
             var slug = Console.ReadLine();
 
-            Create(new Tag
+            Update(new Category
             {
+                Id = int.Parse(id),
                 Name = name,
                 Slug = slug
             });
             Console.ReadKey();
-            MenuTagScreen.Load();
+            MenuCategoryScreen.Load();
         }
-
-        public static void Create(Tag tag)
+        public static void Update(Category category)
         {
             try
             {
-                var repository = new Repository<Tag>(Database.Connection);
-                repository.Create(tag);
-                Console.WriteLine("Tag cadastrada com sucesso!");
+                var repository = new Repository<Category>(Database.Connection);
+                repository.Update(category);
+                Console.WriteLine("Categoria atualizada com sucesso!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Não foi possivel salvar a tag");
+                Console.WriteLine("Não foi possivel atualizar a categoria");
                 Console.WriteLine(ex.Message);
             }
 
-
         }
+
     }
 }

@@ -2,44 +2,41 @@ using System;
 using Blog.Models;
 using Blog.Repositories;
 
-namespace Blog.Screens.TagScreens
+namespace Blog.Screens.CategoryScreens
 {
-    public static class CreateTagScreen
+    public static class CreateCategoryScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Nova tag");
+            Console.WriteLine("Nova categoria");
             Console.WriteLine("--------------");
             Console.Write("Nome: ");
             var name = Console.ReadLine();
             Console.Write("Slug: ");
             var slug = Console.ReadLine();
 
-            Create(new Tag
+            Create(new Category
             {
                 Name = name,
                 Slug = slug
             });
             Console.ReadKey();
-            MenuTagScreen.Load();
+            MenuCategoryScreen.Load();
         }
-
-        public static void Create(Tag tag)
+        public static void Create(Category category)
         {
             try
             {
-                var repository = new Repository<Tag>(Database.Connection);
-                repository.Create(tag);
-                Console.WriteLine("Tag cadastrada com sucesso!");
+                var repository = new Repository<Category>(Database.Connection);
+                repository.Create(category);
+                Console.WriteLine("Categoria criada com sucesso!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Não foi possivel salvar a tag");
+                Console.WriteLine("Não foi possivel cadastrar a categoria");
                 Console.WriteLine(ex.Message);
             }
-
-
         }
     }
 }
